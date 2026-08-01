@@ -1,0 +1,45 @@
+{
+  "annotations": {
+    "changelogDate": "20231216080917"
+  },
+  "applications": ["colocationImmo"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "statutValidation",
+      "fieldType": "StatutValidation",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "EN_ATTENTE,VALIDE,REFUSE"
+    },
+    {
+      "fieldName": "dateValidation",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "dateCreation",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "ProfilDemarcheur",
+  "relationships": [
+    {
+      "otherEntityField": "login",
+      "otherEntityName": "user",
+      "relationshipName": "utilisateur",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one",
+      "relationshipValidateRules": "required",
+      "relationshipWithBuiltInEntity": true
+    },
+    {
+      "otherEntityField": "login",
+      "otherEntityName": "user",
+      "relationshipName": "validePar",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipWithBuiltInEntity": true
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

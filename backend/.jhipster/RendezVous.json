@@ -1,0 +1,67 @@
+{
+  "annotations": {
+    "changelogDate": "20231216082217"
+  },
+  "applications": ["colocationImmo"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "dateHeure",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateReportee",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lieu",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "contenu",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "2000"
+    },
+    {
+      "fieldName": "motif",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "statut",
+      "fieldType": "StatutRendezVous",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "DEMANDE,ACCEPTE,REFUSE,REPORTE,ANNULE,TERMINE"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "RendezVous",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "titre",
+      "otherEntityName": "annonce",
+      "otherEntityRelationshipName": "rendezVous",
+      "relationshipName": "annonce",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "login",
+      "otherEntityName": "user",
+      "relationshipName": "demandeur",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required",
+      "relationshipWithBuiltInEntity": true
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

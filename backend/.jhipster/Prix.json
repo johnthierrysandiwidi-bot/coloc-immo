@@ -1,0 +1,53 @@
+{
+  "annotations": {
+    "changelogDate": "20231216081417"
+  },
+  "applications": ["colocationImmo"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "prix",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required", "min"],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "500"
+    },
+    {
+      "fieldName": "charges",
+      "fieldType": "Double",
+      "fieldValidateRules": ["min"],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "periodicite",
+      "fieldType": "Periodicite",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "MENSUEL,TRIMESTRIEL,ANNUEL"
+    },
+    {
+      "fieldName": "dateEffet",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Prix",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "nom",
+      "otherEntityName": "immobilier",
+      "otherEntityRelationshipName": "prix",
+      "relationshipName": "immobilier",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

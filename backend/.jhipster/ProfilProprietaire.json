@@ -1,0 +1,39 @@
+{
+  "annotations": {
+    "changelogDate": "20231216080817"
+  },
+  "applications": ["colocationImmo"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "TypeProprietaire",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "PARTICULIER,AGENCE"
+    },
+    {
+      "fieldName": "raisonSociale",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "150"
+    },
+    {
+      "fieldName": "dateCreation",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "ProfilProprietaire",
+  "relationships": [
+    {
+      "otherEntityField": "login",
+      "otherEntityName": "user",
+      "relationshipName": "utilisateur",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one",
+      "relationshipValidateRules": "required",
+      "relationshipWithBuiltInEntity": true
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

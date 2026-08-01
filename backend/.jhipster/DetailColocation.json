@@ -1,0 +1,87 @@
+{
+  "annotations": {
+    "changelogDate": "20231216081817"
+  },
+  "applications": ["colocationImmo"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "nombrePlaces",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required", "min"],
+      "fieldValidateRulesMin": "1"
+    },
+    {
+      "fieldName": "placesRestantes",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required", "min"],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "sexeRecherche",
+      "fieldType": "SexeRecherche",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "HOMME,FEMME,INDIFFERENT"
+    },
+    {
+      "fieldName": "ageMin",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["min", "max"],
+      "fieldValidateRulesMax": "120",
+      "fieldValidateRulesMin": "16"
+    },
+    {
+      "fieldName": "ageMax",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["min", "max"],
+      "fieldValidateRulesMax": "120",
+      "fieldValidateRulesMin": "16"
+    },
+    {
+      "fieldName": "loyer",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required", "min"],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "caution",
+      "fieldType": "Double",
+      "fieldValidateRules": ["min"],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "charges",
+      "fieldType": "Double",
+      "fieldValidateRules": ["min"],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "reglesDeVie",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "3000"
+    }
+  ],
+  "name": "DetailColocation",
+  "relationships": [
+    {
+      "otherEntityField": "titre",
+      "otherEntityName": "annonce",
+      "otherEntityRelationshipName": "detailColocation",
+      "relationshipName": "annonce",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "nom",
+      "otherEntityName": "equipement",
+      "otherEntityRelationshipName": "colocations",
+      "relationshipName": "equipements",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

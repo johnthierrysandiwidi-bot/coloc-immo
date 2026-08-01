@@ -1,0 +1,33 @@
+{
+  "annotations": {
+    "changelogDate": "20231216081917"
+  },
+  "applications": ["colocationImmo"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "80"
+    },
+    {
+      "fieldName": "icone",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "80"
+    }
+  ],
+  "name": "Equipement",
+  "relationships": [
+    {
+      "otherEntityName": "detailColocation",
+      "otherEntityRelationshipName": "equipements",
+      "relationshipName": "colocations",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

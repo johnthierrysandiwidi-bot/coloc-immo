@@ -1,0 +1,43 @@
+{
+  "annotations": {
+    "changelogDate": "20231216081717"
+  },
+  "applications": ["colocationImmo"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "dateVue",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "adresseIp",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "45"
+    }
+  ],
+  "name": "VueAnnonce",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "titre",
+      "otherEntityName": "annonce",
+      "otherEntityRelationshipName": "vues",
+      "relationshipName": "annonce",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "login",
+      "otherEntityName": "user",
+      "relationshipName": "utilisateur",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipWithBuiltInEntity": true
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-label="Colocation : cour partagée à Ouagadougou">
+  <defs>
+    <linearGradient id="cielC" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#CFE0E8"/><stop offset="1" stop-color="#EADFC8"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="400" fill="url(#cielC)"/>
+  <!-- sol en latérite -->
+  <rect y="286" width="640" height="114" fill="#B5653C"/>
+  <rect y="286" width="640" height="10" fill="#9E552F"/>
+
+  <!-- mur de clôture de la cour -->
+  <rect x="40" y="196" width="560" height="92" fill="#D9BFA0"/>
+  <rect x="40" y="188" width="560" height="12" fill="#C9AC8C"/>
+
+  <!-- bâtiment principal : trois chambres alignées, typique d'une cour locative -->
+  <rect x="96" y="112" width="152" height="120" fill="#E3CDB2"/>
+  <rect x="248" y="112" width="152" height="120" fill="#D9BFA0"/>
+  <rect x="400" y="112" width="152" height="120" fill="#E3CDB2"/>
+  <!-- toit en tôle ondulée -->
+  <polygon points="80,112 568,112 544,78 104,78" fill="#8C9AA6"/>
+  <g stroke="#7A8792" stroke-width="2">
+    <line x1="140" y1="80" x2="120" y2="110"/><line x1="200" y1="80" x2="180" y2="110"/>
+    <line x1="260" y1="80" x2="240" y2="110"/><line x1="320" y1="80" x2="300" y2="110"/>
+    <line x1="380" y1="80" x2="360" y2="110"/><line x1="440" y1="80" x2="420" y2="110"/>
+    <line x1="500" y1="80" x2="480" y2="110"/>
+  </g>
+
+  <!-- trois portes = trois locataires partageant la cour -->
+  <g fill="#1B5E43">
+    <rect x="146" y="160" width="48" height="72" rx="3"/>
+    <rect x="298" y="160" width="48" height="72" rx="3"/>
+    <rect x="450" y="160" width="48" height="72" rx="3"/>
+  </g>
+  <g fill="#EADFC8">
+    <circle cx="186" cy="198" r="3"/><circle cx="338" cy="198" r="3"/><circle cx="490" cy="198" r="3"/>
+  </g>
+  <!-- fenêtres -->
+  <g fill="#9CC2D1">
+    <rect x="112" y="140" width="26" height="24" rx="2"/>
+    <rect x="264" y="140" width="26" height="24" rx="2"/>
+    <rect x="416" y="140" width="26" height="24" rx="2"/>
+  </g>
+
+  <!-- neem au centre de la cour -->
+  <rect x="316" y="252" width="10" height="36" fill="#6B4A2F"/>
+  <circle cx="321" cy="244" r="30" fill="#4A7C59"/>
+  <circle cx="298" cy="252" r="20" fill="#3F6B4C"/>
+  <circle cx="344" cy="252" r="20" fill="#568A63"/>
+
+  <!-- trois colocataires -->
+  <g>
+    <circle cx="150" cy="268" r="9" fill="#3B2A20"/>
+    <path d="M138 288 q12 -14 24 0 z" fill="#1B5E43"/>
+    <circle cx="196" cy="270" r="9" fill="#3B2A20"/>
+    <path d="M184 290 q12 -14 24 0 z" fill="#C97B3C"/>
+    <circle cx="470" cy="268" r="9" fill="#3B2A20"/>
+    <path d="M458 288 q12 -14 24 0 z" fill="#2F6DA4"/>
+  </g>
+
+  <!-- canaris (jarres) et tabouret : détail de cour -->
+  <ellipse cx="560" cy="276" rx="16" ry="12" fill="#9E552F"/>
+  <ellipse cx="560" cy="266" rx="12" ry="8" fill="#B5653C"/>
+  <rect x="82" y="266" width="26" height="6" rx="2" fill="#8A6A4A"/>
+  <rect x="86" y="272" width="5" height="12" fill="#8A6A4A"/>
+  <rect x="99" y="272" width="5" height="12" fill="#8A6A4A"/>
+</svg>

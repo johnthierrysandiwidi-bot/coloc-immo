@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity Immobilier.
+    -->
+    <changeSet id="20231216081317-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="proprietaire_id"
+                                 baseTableName="immobilier"
+                                 constraintName="fk_immobilier__proprietaire_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="demarcheur_id"
+                                 baseTableName="immobilier"
+                                 constraintName="fk_immobilier__demarcheur_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="localite_id"
+                                 baseTableName="immobilier"
+                                 constraintName="fk_immobilier__localite_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="localite"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="quartier_id"
+                                 baseTableName="immobilier"
+                                 constraintName="fk_immobilier__quartier_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="quartier"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="type_immobilier_id"
+                                 baseTableName="immobilier"
+                                 constraintName="fk_immobilier__type_immobilier_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_immobilier"
+                                 />
+    </changeSet>
+</databaseChangeLog>

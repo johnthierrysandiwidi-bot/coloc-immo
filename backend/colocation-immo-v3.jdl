@@ -1,0 +1,355 @@
+// =====================================================================
+// colocation_immo — JDL v3
+// Couvre l'intégralité du cahier des charges (colocation, démarcheurs,
+// validation documentaire, favoris, notifications, alertes).
+//
+// Utilisation :
+//   jhipster jdl colocation-immo-v3.jdl --force
+// =====================================================================
+
+application {
+  config {
+    baseName colocationImmo
+    applicationType monolith
+    packageName bf.colocation.immo
+    authenticationType jwt
+    buildTool maven
+    databaseType sql
+    devDatabaseType mysql
+    prodDatabaseType mysql
+    clientFramework no        // <-- backend seul : le front React vit dans un projet séparé
+    nativeLanguage fr
+    languages [fr, en]
+    enableTranslation false
+    testFrameworks []
+  }
+  entities *
+}
+
+// =====================================================================
+// ENUMS
+// =====================================================================
+
+enum StatutBien {
+  BROUILLON, DISPONIBLE, PARTIELLEMENT_LOUE, LOUE, ARCHIVE
+}
+
+enum TypeAnnonce {
+  VENTE, LOCATION, COLOCATION
+}
+
+enum StatutAnnonce {
+  BROUILLON, PUBLIEE, SUSPENDUE, EXPIREE, CLOTUREE
+}
+
+enum StatutRendezVous {
+  DEMANDE, ACCEPTE, REFUSE, REPORTE, ANNULE, TERMINE
+}
+
+enum StatutValidation {
+  EN_ATTENTE, VALIDE, REFUSE
+}
+
+enum SexeRecherche {
+  HOMME, FEMME, INDIFFERENT
+}
+
+enum TypeProprietaire {
+  PARTICULIER, AGENCE
+}
+
+enum FrequenceAlerte {
+  IMMEDIATE, QUOTIDIENNE, HEBDOMADAIRE
+}
+
+enum Periodicite {
+  MENSUEL, TRIMESTRIEL, ANNUEL
+}
+
+enum TypeNotification {
+  DOCUMENT_VALIDE, DOCUMENT_REFUSE, NOUVELLE_ANNONCE,
+  RDV_DEMANDE, RDV_ACCEPTE, RDV_REFUSE, RDV_REPORTE,
+  ANNONCE_EXPIREE, ANNONCE_MODIFIEE, COMPTE_SUSPENDU
+}
+
+// =====================================================================
+// PROFILS MÉTIER
+// Le User de JHipster porte l'identité + l'authentification.
+// Ces deux entités portent les données propres à chaque rôle.
+// =====================================================================
+
+entity ProfilProprietaire {
+  type TypeProprietaire required
+  raisonSociale String maxlength(150)
+  dateCreation Instant
+}
+
+entity ProfilDemarcheur {
+  statutValidation StatutValidation required
+  dateValidation Instant
+  dateCreation Instant
+}
+
+// =====================================================================
+// RÉFÉRENTIEL GÉOGRAPHIQUE — ville + quartier (le plan exige les deux)
+// =====================================================================
+
+entity Localite {                       // = Ville
+  nom String required maxlength(100)
+  description String maxlength(500)
+}
+
+entity Quartier {
+  nom String required maxlength(100)
+  description String maxlength(500)
+}
+
+entity TypeImmobilier {                 // Maison, Appartement, Studio, Villa,
+  nom String required maxlength(100)    // Chambre, Parcelle, Bureau, Immeuble
+  description String maxlength(500)
+}
+
+// =====================================================================
+// BIEN IMMOBILIER
+// =====================================================================
+
+entity Immobilier {
+  nom String required maxlength(150)
+  description String maxlength(5000)
+
+  adresse String maxlength(255)
+  surface Double min(0)
+  nombrePieces Integer min(0)
+  nombreChambres Integer min(0)
+  nombreSallesBain Integer min(0)       // AJOUT plan
+  nombreSalons Integer min(0)           // AJOUT plan
+  garage Boolean                        // AJOUT plan
+  piscine Boolean                       // AJOUT plan
+  meuble Boolean
+  disponibleA LocalDate
+  statut StatutBien required
+  latitude Double
+  longitude Double
+  dateCreation Instant
+}
+
+// Historique de prix rattaché au bien
+entity Prix {
+  prix Double required min(0)
+  description String maxlength(500)
+  charges Double min(0)
+  periodicite Periodicite required
+  dateEffet LocalDate required
+}
+
+// Photos : URL vers le stockage fichier, PAS de blob en base
+entity Image {
+  nom String maxlength(150)
+  url String required maxlength(255)
+  ordre Integer min(0)
+  principale Boolean
+}
+
+// =====================================================================
+// ANNONCE
+// =====================================================================
+
+entity Annonce {
+  titre String required maxlength(150)
+  contenu String maxlength(5000)
+
+  type TypeAnnonce required             // AJOUT : VENTE / LOCATION / COLOCATION
+  prix Double required min(0)           // AJOUT plan
+  nombreVues Integer min(0)             // AJOUT plan
+  datePublication Instant
+  dateExpiration Instant
+  statut StatutAnnonce required
+}
+
+// Traçabilité des vues (alimente nombreVues + "consultées récemment")
+entity VueAnnonce {
+  dateVue Instant required
+  adresseIp String maxlength(45)
+}
+
+// =====================================================================
+// COLOCATION — le cœur du projet, totalement absent du modèle actuel
+// Relation 1..0-1 avec Annonce : présent uniquement si type = COLOCATION
+// =====================================================================
+
+entity DetailColocation {
+  nombrePlaces Integer required min(1)
+  placesRestantes Integer required min(0)
+  sexeRecherche SexeRecherche required
+  ageMin Integer min(16) max(120)
+  ageMax Integer min(16) max(120)
+  loyer Double required min(0)
+  caution Double min(0)
+  charges Double min(0)
+  reglesDeVie String maxlength(3000)
+}
+
+entity Equipement {
+  nom String required maxlength(80)     // Wifi, Climatisation, Parking...
+  icone String maxlength(80)
+}
+
+// =====================================================================
+// VÉRIFICATION DES DOCUMENTS — workflow complet
+// =====================================================================
+
+entity TypeDocument {
+  nom String required maxlength(100)    // CNI, Passeport, Permis, Carte pro
+  description String maxlength(500)
+}
+
+entity Document {
+  nom String required maxlength(150)
+  url String required maxlength(255)    // fichier stocké hors base
+  statut StatutValidation required      // AJOUT : EN_ATTENTE / VALIDE / REFUSE
+  motifRefus String maxlength(500)      // AJOUT
+  dateAjout Instant
+  dateTraitement Instant                // AJOUT
+}
+
+// =====================================================================
+// RENDEZ-VOUS
+// =====================================================================
+
+entity RendezVous {
+  dateHeure Instant required
+  dateReportee Instant                  // AJOUT : gestion du report
+  lieu String maxlength(255)
+  contenu String maxlength(2000)
+  motif String maxlength(255)           // AJOUT : motif de refus / annulation
+  statut StatutRendezVous required
+}
+
+// =====================================================================
+// FAVORIS — absent du modèle actuel
+// =====================================================================
+
+entity Favori {
+  dateAjout Instant required
+}
+
+// =====================================================================
+// ALERTES
+// =====================================================================
+
+entity Alerte {
+  titre String required maxlength(150)
+  contenu String maxlength(2000)
+
+  typeAnnonce TypeAnnonce               // AJOUT : filtrer vente/location/coloc
+  prixMin Double min(0)                 // AJOUT (seul budgetMax existait)
+  prixMax Double min(0)
+  surfaceMin Double min(0)
+  nombreChambresMin Integer min(0)
+  meubleUniquement Boolean
+  active Boolean required
+  frequence FrequenceAlerte required
+  derniereExecution Instant
+}
+
+// Anti-doublon : une alerte ne notifie qu'une fois par annonce
+entity AlerteNotifiee {
+  dateEnvoi Instant required
+}
+
+// =====================================================================
+// NOTIFICATIONS — absent du modèle actuel
+// =====================================================================
+
+entity Notification {
+  type TypeNotification required
+  titre String required maxlength(150)
+  message String required maxlength(500)
+  lien String maxlength(255)
+  lue Boolean required
+  dateCreation Instant required
+}
+
+entity DeviceToken {
+  token String required maxlength(255)
+  plateforme String required maxlength(20)   // ANDROID / IOS / WEB
+  dateCreation Instant
+}
+
+// =====================================================================
+// RELATIONS
+// =====================================================================
+
+relationship OneToOne {
+  ProfilProprietaire{utilisateur(login) required} to User with builtInEntity
+  ProfilDemarcheur{utilisateur(login) required} to User with builtInEntity
+  ProfilDemarcheur{validePar(login)} to User with builtInEntity
+  DetailColocation{annonce(titre) required} to Annonce{detailColocation}
+}
+
+relationship ManyToOne {
+  // Géographie
+  Quartier{localite(nom) required} to Localite{quartiers}
+
+  // Bien
+  Immobilier{proprietaire(login) required} to User with builtInEntity
+  Immobilier{demarcheur(login)} to User with builtInEntity
+  Immobilier{localite(nom)} to Localite
+  Immobilier{quartier(nom)} to Quartier
+  Immobilier{typeImmobilier(nom)} to TypeImmobilier
+
+  // Annonce
+  Annonce{immobilier(nom) required} to Immobilier{annonces}
+  Annonce{auteur(login) required} to User with builtInEntity
+
+  VueAnnonce{annonce(titre) required} to Annonce{vues}
+  VueAnnonce{utilisateur(login)} to User with builtInEntity
+
+  // Rendez-vous
+  RendezVous{annonce(titre) required} to Annonce{rendezVous}
+  RendezVous{demandeur(login) required} to User with builtInEntity
+
+  // Favoris
+  Favori{annonce(titre) required} to Annonce{favoris}
+  Favori{utilisateur(login) required} to User with builtInEntity
+
+  // Documents
+  Document{typeDocument(nom) required} to TypeDocument
+  Document{demarcheur(login) required} to User with builtInEntity
+  Document{traitePar(login)} to User with builtInEntity
+
+  // Alertes
+  Alerte{titulaire(login) required} to User with builtInEntity
+  Alerte{localite(nom)} to Localite
+  Alerte{quartier(nom)} to Quartier
+  Alerte{typeImmobilier(nom)} to TypeImmobilier
+
+  AlerteNotifiee{alerte(titre) required} to Alerte{notifiees}
+  AlerteNotifiee{annonce(titre) required} to Annonce
+
+  // Notifications
+  Notification{destinataire(login) required} to User with builtInEntity
+  DeviceToken{utilisateur(login) required} to User with builtInEntity
+}
+
+relationship OneToMany {
+  Immobilier{prix} to Prix{immobilier(nom) required}
+  Immobilier{images} to Image{immobilier(nom) required}
+}
+
+relationship ManyToMany {
+  DetailColocation{equipements(nom)} to Equipement{colocations}
+}
+
+// =====================================================================
+// OPTIONS
+// =====================================================================
+
+// QueryService + Criteria => recherche avancée à facettes
+filter Immobilier, Annonce, RendezVous, Alerte, Document, Favori, Notification
+
+paginate Immobilier, Annonce, RendezVous, Alerte, Prix, Document,
+         Image, Favori, Notification, VueAnnonce with pagination
+
+dto * with mapstruct
+service all with serviceImpl

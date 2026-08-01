@@ -1,0 +1,106 @@
+{
+  "annotations": {
+    "changelogDate": "20231216081617"
+  },
+  "applications": ["colocationImmo"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "titre",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "150"
+    },
+    {
+      "fieldName": "contenu",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "5000"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "TypeAnnonce",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "VENTE,LOCATION,COLOCATION"
+    },
+    {
+      "fieldName": "prix",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required", "min"],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "nombreVues",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["min"],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "datePublication",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "dateExpiration",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "statut",
+      "fieldType": "StatutAnnonce",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "BROUILLON,PUBLIEE,SUSPENDUE,EXPIREE,CLOTUREE"
+    }
+  ],
+  "jpaMetamodelFiltering": true,
+  "name": "Annonce",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "nom",
+      "otherEntityName": "immobilier",
+      "otherEntityRelationshipName": "annonces",
+      "relationshipName": "immobilier",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "login",
+      "otherEntityName": "user",
+      "relationshipName": "auteur",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required",
+      "relationshipWithBuiltInEntity": true
+    },
+    {
+      "otherEntityName": "detailColocation",
+      "otherEntityRelationshipName": "annonce",
+      "relationshipName": "detailColocation",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "vueAnnonce",
+      "otherEntityRelationshipName": "annonce",
+      "relationshipName": "vues",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "rendezVous",
+      "otherEntityRelationshipName": "annonce",
+      "relationshipName": "rendezVous",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "favori",
+      "otherEntityRelationshipName": "annonce",
+      "relationshipName": "favoris",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

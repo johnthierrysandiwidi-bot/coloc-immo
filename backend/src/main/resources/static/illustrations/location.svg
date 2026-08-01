@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-label="Villa à louer à Ouagadougou">
+  <defs>
+    <linearGradient id="ciel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9FC4D8"/>
+      <stop offset="0.55" stop-color="#D8DCCF"/>
+      <stop offset="1" stop-color="#EFDCC0"/>
+    </linearGradient>
+    <linearGradient id="mur" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#EBD9BE"/><stop offset="1" stop-color="#D6BE9C"/>
+    </linearGradient>
+    <linearGradient id="murOmbre" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C9AF8C"/><stop offset="1" stop-color="#B69C7B"/>
+    </linearGradient>
+    <linearGradient id="sol" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#B5673D"/><stop offset="1" stop-color="#8E4E2C"/>
+    </linearGradient>
+    <linearGradient id="tole" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8E9BA6"/><stop offset="0.5" stop-color="#AFBAC4"/>
+      <stop offset="1" stop-color="#7E8B96"/>
+    </linearGradient>
+    <linearGradient id="vitre" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#CFE3EC"/><stop offset="0.5" stop-color="#8FB6C9"/>
+      <stop offset="1" stop-color="#6E9AB0"/>
+    </linearGradient>
+    <filter id="ombreDouce" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" result="b"/>
+      <feColorMatrix in="b" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.10"/></feComponentTransfer>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="600" fill="url(#ciel)"/>
+  <!-- voile d'harmattan : la brume de poussière typique de la saison sèche -->
+  <ellipse cx="480" cy="330" rx="620" ry="140" fill="#EBDFC8" opacity="0.45"/>
+
+  <!-- arrière-plan atténué : profondeur atmosphérique -->
+  <g opacity="0.32">
+    <rect x="60" y="250" width="150" height="86" fill="#9E8A70"/>
+    <rect x="760" y="238" width="170" height="98" fill="#9E8A70"/>
+    <rect x="700" y="266" width="70" height="70" fill="#8E7B63"/>
+  </g>
+
+  <!-- sol en latérite -->
+  <rect y="418" width="960" height="182" fill="url(#sol)"/>
+  <ellipse cx="480" cy="424" rx="700" ry="18" fill="#C87A4E" opacity="0.5"/>
+  <g opacity="0.16" fill="#5E3218">
+    <ellipse cx="180" cy="500" rx="90" ry="9"/><ellipse cx="620" cy="540" rx="130" ry="11"/>
+    <ellipse cx="850" cy="470" rx="70" ry="7"/>
+  </g>
+
+  <!-- mur de clôture -->
+  <rect x="0" y="330" width="960" height="92" fill="url(#murOmbre)"/>
+  <rect x="0" y="322" width="960" height="14" fill="#C3A987"/>
+  <rect x="0" y="404" width="960" height="18" fill="#A98F6E" opacity="0.55"/>
+
+  <!-- ombre portée de la villa -->
+  <ellipse cx="500" cy="424" rx="290" ry="26" fill="#6B3A1E" opacity="0.35" filter="url(#ombreDouce)"/>
+
+  <!-- villa : corps principal -->
+  <rect x="228" y="150" width="500" height="190" fill="url(#mur)"/>
+  <!-- retour latéral, plus sombre : donne le volume -->
+  <polygon points="728,150 800,178 800,346 728,340" fill="url(#murOmbre)"/>
+  <!-- acrotère du toit-terrasse -->
+  <rect x="214" y="128" width="528" height="26" fill="#C9B091"/>
+  <polygon points="742,128 812,156 800,178 742,154" fill="#B49A79"/>
+  <rect x="214" y="150" width="528" height="7" fill="#8E7A5E" opacity="0.4"/>
+
+  <!-- bandeau d'ombre sous l'acrotère -->
+  <rect x="228" y="157" width="500" height="16" fill="#8E7A5E" opacity="0.22"/>
+
+  <!-- fenêtres avec appuis et ombre -->
+  <g>
+    <rect x="268" y="196" width="96" height="76" rx="3" fill="url(#vitre)"/>
+    <rect x="264" y="268" width="104" height="8" fill="#C3A987"/>
+    <rect x="268" y="196" width="96" height="76" rx="3" fill="none" stroke="#B69C7B" stroke-width="6"/>
+    <line x1="316" y1="196" x2="316" y2="272" stroke="#DCE9EF" stroke-width="3" opacity="0.8"/>
+
+    <rect x="428" y="196" width="96" height="76" rx="3" fill="url(#vitre)"/>
+    <rect x="424" y="268" width="104" height="8" fill="#C3A987"/>
+    <rect x="428" y="196" width="96" height="76" rx="3" fill="none" stroke="#B69C7B" stroke-width="6"/>
+    <line x1="476" y1="196" x2="476" y2="272" stroke="#DCE9EF" stroke-width="3" opacity="0.8"/>
+
+    <rect x="588" y="196" width="96" height="76" rx="3" fill="url(#vitre)"/>
+    <rect x="584" y="268" width="104" height="8" fill="#C3A987"/>
+    <rect x="588" y="196" width="96" height="76" rx="3" fill="none" stroke="#B69C7B" stroke-width="6"/>
+    <line x1="636" y1="196" x2="636" y2="272" stroke="#DCE9EF" stroke-width="3" opacity="0.8"/>
+  </g>
+
+  <!-- auvent d'entrée en tôle -->
+  <polygon points="404,300 556,300 578,340 382,340" fill="url(#tole)"/>
+  <g stroke="#6F7C87" stroke-width="1.6" opacity="0.75">
+    <line x1="418" y1="302" x2="398" y2="338"/><line x1="446" y1="302" x2="428" y2="338"/>
+    <line x1="474" y1="302" x2="458" y2="338"/><line x1="502" y1="302" x2="488" y2="338"/>
+    <line x1="530" y1="302" x2="518" y2="338"/><line x1="554" y1="302" x2="546" y2="338"/>
+  </g>
+  <rect x="392" y="340" width="7" height="82" fill="#7E8B96"/>
+  <rect x="562" y="340" width="7" height="82" fill="#6F7C87"/>
+
+  <!-- porte d'entrée -->
+  <rect x="446" y="252" width="68" height="88" rx="2" fill="#1B5E43"/>
+  <rect x="452" y="260" width="26" height="34" fill="#17513A"/>
+  <rect x="484" y="260" width="26" height="34" fill="#17513A"/>
+  <circle cx="504" cy="300" r="3.5" fill="#E8D5B7"/>
+
+  <!-- portail métallique dans le mur de clôture -->
+  <rect x="700" y="330" width="150" height="92" fill="#2F6DA4"/>
+  <g stroke="#24557F" stroke-width="3">
+    <line x1="716" y1="334" x2="716" y2="418"/><line x1="740" y1="334" x2="740" y2="418"/>
+    <line x1="764" y1="334" x2="764" y2="418"/><line x1="788" y1="334" x2="788" y2="418"/>
+    <line x1="812" y1="334" x2="812" y2="418"/><line x1="836" y1="334" x2="836" y2="418"/>
+  </g>
+  <rect x="700" y="330" width="150" height="10" fill="#3D82BE"/>
+  <rect x="700" y="330" width="150" height="92" fill="#000000" opacity="0.10"/>
+
+  <!-- neem au feuillage étagé -->
+  <ellipse cx="146" cy="424" rx="58" ry="12" fill="#5E3218" opacity="0.3" filter="url(#ombreDouce)"/>
+  <rect x="138" y="316" width="16" height="106" fill="#6B4A2F"/>
+  <rect x="138" y="316" width="6" height="106" fill="#83603F"/>
+  <circle cx="146" cy="288" r="62" fill="#3F6B4C"/>
+  <circle cx="104" cy="308" r="40" fill="#355C41"/>
+  <circle cx="188" cy="306" r="42" fill="#4E7F5B"/>
+  <circle cx="150" cy="262" r="38" fill="#568A63"/>
+  <circle cx="120" cy="278" r="26" fill="#5F9269" opacity="0.85"/>
+
+  <!-- panneau À LOUER -->
+  <rect x="856" y="252" width="9" height="170" fill="#6B4A2F"/>
+  <rect x="792" y="228" width="140" height="62" rx="7" fill="#1B5E43"/>
+  <rect x="792" y="228" width="140" height="62" rx="7" fill="none" stroke="#14472F" stroke-width="2"/>
+  <text x="862" y="256" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="bold"
+        fill="#FFFFFF" text-anchor="middle">À LOUER</text>
+  <text x="862" y="277" font-family="Arial, Helvetica, sans-serif" font-size="13"
+        fill="#BFE0CE" text-anchor="middle">Ouagadougou</text>
+
+  <!-- grain photographique léger -->
+  <rect width="960" height="600" filter="url(#grain)" fill="#FFFFFF" opacity="0.5"/>
+</svg>

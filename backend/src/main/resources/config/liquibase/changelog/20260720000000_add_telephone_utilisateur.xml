@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <!--
+        Numéro de téléphone de l'utilisateur.
+
+        Le rapport (§4.3.1) prescrit que l'inscription recueille « nom, prénom,
+        adresse électronique, numéro de téléphone et mot de passe ». Le téléphone
+        manquait au modèle : sur un marché où la prise de contact et le paiement
+        passent par le mobile money, un compte sans numéro est peu exploitable.
+
+        La colonne est facultative : les comptes existants restent valides et
+        aucune reprise de données n'est nécessaire.
+    -->
+    <changeSet id="20260720000000-1" author="colocimmo">
+        <addColumn tableName="jhi_user">
+            <column name="telephone" type="varchar(20)">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>

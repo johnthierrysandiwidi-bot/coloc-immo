@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <!--
+        Entité Avis — réputation des démarcheurs (module V2).
+        Un locataire note un démarcheur après une visite effectivement réalisée.
+        Le lien vers le rendez-vous atteste de la visite ; une contrainte d'unicité
+        garantit un seul avis par rendez-vous.
+    -->
+    <changeSet id="20260725000000-1" author="colocation-immo">
+        <createTable tableName="avis">
+            <column name="id" type="bigint" autoIncrement="true" startWith="1600">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="note" type="integer">
+                <constraints nullable="false"/>
+            </column>
+            <column name="commentaire" type="varchar(1000)"/>
+            <column name="date_creation" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="auteur_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="demarcheur_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rendez_vous_id" type="bigint">
+                <constraints nullable="false" unique="true" uniqueConstraintName="ux_avis_rendez_vous"/>
+            </column>
+        </createTable>
+        <dropDefaultValue tableName="avis" columnName="date_creation" columnDataType="datetime"/>
+    </changeSet>
+
+    <changeSet id="20260725000000-2" author="colocation-immo">
+        <addForeignKeyConstraint baseColumnNames="auteur_id"
+            baseTableName="avis"
+            constraintName="fk_avis_auteur_id"
+            referencedColumnNames="id"
+            referencedTableName="jhi_user"/>
+        <addForeignKeyConstraint baseColumnNames="demarcheur_id"
+            baseTableName="avis"
+            constraintName="fk_avis_demarcheur_id"
+            referencedColumnNames="id"
+            referencedTableName="jhi_user"/>
+        <addForeignKeyConstraint baseColumnNames="rendez_vous_id"
+            baseTableName="avis"
+            constraintName="fk_avis_rendez_vous_id"
+            referencedColumnNames="id"
+            referencedTableName="rendez_vous"/>
+    </changeSet>
+</databaseChangeLog>

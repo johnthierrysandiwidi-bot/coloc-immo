@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <!-- Pas d'id forcé : JHipster insère déjà des données faker en dev. -->
+    <changeSet id="20260713010000-1" author="colocation-immo" context="!faker">
+        <insert tableName="type_document"><column name="nom" value="Carte d'identité"/></insert>
+        <insert tableName="type_document"><column name="nom" value="Passeport"/></insert>
+        <insert tableName="type_document"><column name="nom" value="Permis"/></insert>
+        <insert tableName="type_document"><column name="nom" value="Carte professionnelle"/></insert>
+    </changeSet>
+
+
+    <changeSet id="20260713010000-3" author="colocation-immo" context="!faker">
+        <insert tableName="equipement"><column name="nom" value="Wifi"/></insert>
+        <insert tableName="equipement"><column name="nom" value="Climatisation"/></insert>
+        <insert tableName="equipement"><column name="nom" value="Cuisine équipée"/></insert>
+        <insert tableName="equipement"><column name="nom" value="Lave-linge"/></insert>
+        <insert tableName="equipement"><column name="nom" value="Parking"/></insert>
+        <insert tableName="equipement"><column name="nom" value="Gardiennage"/></insert>
+        <insert tableName="equipement"><column name="nom" value="Groupe électrogène"/></insert>
+        <insert tableName="equipement"><column name="nom" value="Eau courante"/></insert>
+        <insert tableName="equipement"><column name="nom" value="Meublé"/></insert>
+    </changeSet>
+</databaseChangeLog>

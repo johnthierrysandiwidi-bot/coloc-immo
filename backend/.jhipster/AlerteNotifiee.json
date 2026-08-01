@@ -1,0 +1,36 @@
+{
+  "annotations": {
+    "changelogDate": "20231216082517"
+  },
+  "applications": ["colocationImmo"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "dateEnvoi",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "AlerteNotifiee",
+  "relationships": [
+    {
+      "otherEntityField": "titre",
+      "otherEntityName": "alerte",
+      "otherEntityRelationshipName": "notifiees",
+      "relationshipName": "alerte",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityField": "titre",
+      "otherEntityName": "annonce",
+      "relationshipName": "annonce",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

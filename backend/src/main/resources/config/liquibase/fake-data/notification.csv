@@ -1,0 +1,31 @@
+id;type;titre;message;lien;lue;date_creation;destinataire_id
+1;NOUVELLE_ANNONCE;avex simple;vu que;groin groin priver de sorte que;true;2023-12-15T18:19:25;1
+2;DOCUMENT_REFUSE;cocorico tard;sage tout à fait briser;tâcher;false;2023-12-15T22:38:33;2
+3;DOCUMENT_REFUSE;cadre;oups;déjeuner;true;2023-12-15T18:15:47;1
+4;COMPTE_SUSPENDU;grâce à secouriste;pourrir;tellement derechef;true;2023-12-16T01:15:14;2
+5;DOCUMENT_REFUSE;actionnaire à partir de;commis tant;informer quant à;true;2023-12-15T19:04:10;1
+6;NOUVELLE_ANNONCE;drelin avex;mélanger;broum montrer;false;2023-12-16T06:06:45;1
+7;ANNONCE_MODIFIEE;avant-hier ressortir personnel professionnel;magnifique de façon à;bè administration quoique;true;2023-12-16T00:34:42;1
+8;RDV_REFUSE;oui neutre;oh afin que ouin;cadre patientèle tant que;false;2023-12-16T03:28:23;2
+9;RDV_DEMANDE;confondre;de peur que préserver;à condition que candide;false;2023-12-15T09:01:33;2
+10;RDV_DEMANDE;parmi électorat quelque;d’autant que;à l'encontre de immense;true;2023-12-15T20:45:23;1
+11;RDV_ACCEPTE;dense;concurrence;conformer si pschitt;false;2023-12-16T06:30:25;1
+12;RDV_REFUSE;photographier;expliquer fade;du fait que biathlète;true;2023-12-16T04:44:03;1
+13;ANNONCE_MODIFIEE;broum;terne délégation;totalement à même gai;false;2023-12-15T15:54:57;1
+14;RDV_REFUSE;actionnaire en géométrique;membre du personnel;tandis que moins;true;2023-12-16T06:58:25;1
+15;NOUVELLE_ANNONCE;oh coin-coin ouah;au-dedans de trop peu délégation;bè user au-dessous;false;2023-12-16T03:45:19;2
+16;ANNONCE_MODIFIEE;drôlement de façon que;assez interpréter lunatique;toutefois;false;2023-12-15T23:27:41;1
+17;DOCUMENT_VALIDE;mélancolique après-demain;de par personnel;oh;true;2023-12-15T15:12:32;2
+18;COMPTE_SUSPENDU;adepte chez;antique participer;dans la mesure où;false;2023-12-16T03:59:04;1
+19;DOCUMENT_VALIDE;sincère;établir tenir;falloir;true;2023-12-15T13:50:05;2
+20;RDV_REFUSE;ah tsoin-tsoin administration;direction;communauté étudiante du fait que ouin;false;2023-12-16T00:23:19;2
+21;COMPTE_SUSPENDU;aussitôt porte-parole loin;lire;grrr gai;false;2023-12-15T11:24:17;1
+22;RDV_DEMANDE;sitôt que;quoique trop peu;au-delà;false;2023-12-16T04:32:13;1
+23;DOCUMENT_REFUSE;de manière à ce que;prestataire de services chef de cuisine là-haut;si espiègle;false;2023-12-16T06:33:36;1
+24;ANNONCE_MODIFIEE;même si;trop;coin-coin tordre simple;false;2023-12-16T06:38:35;2
+25;DOCUMENT_REFUSE;timide briser;apte;de manière à ce que;false;2023-12-15T17:47:46;2
+26;RDV_DEMANDE;secours crac groin groin;prestataire de services tsoin-tsoin;propre;true;2023-12-16T02:16:24;2
+27;RDV_REFUSE;désigner beaucoup dessous;blablabla;rédaction magenta;false;2023-12-16T03:49:10;2
+28;COMPTE_SUSPENDU;vroum dynamique comme;pendant extra pourvu que;planter;true;2023-12-15T20:00:47;2
+29;NOUVELLE_ANNONCE;après;paf;grandir pin-pon;true;2023-12-15T10:55:30;1
+30;RDV_ACCEPTE;athlète former vivace;subito menacer;jeune enfant psitt broum;false;2023-12-15T22:21:28;1

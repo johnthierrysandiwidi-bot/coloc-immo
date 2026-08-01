@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <!-- Rôles métier du cahier des charges -->
+    <changeSet id="20260713000000-1" author="colocation-immo">
+        <insert tableName="jhi_authority"><column name="name" value="ROLE_PROPRIETAIRE"/></insert>
+        <insert tableName="jhi_authority"><column name="name" value="ROLE_DEMARCHEUR"/></insert>
+        <insert tableName="jhi_authority"><column name="name" value="ROLE_UTILISATEUR"/></insert>
+    </changeSet>
+
+    <!-- Refresh token : absent de JHipster, exigé par le plan -->
+    <changeSet id="20260713000000-2" author="colocation-immo">
+        <createTable tableName="refresh_token">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="token" type="varchar(255)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="ux_refresh_token__token"/>
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_expiration" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revoque" type="boolean" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_creation" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="refresh_token"
+                                 constraintName="fk_refresh_token__user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"
+                                 onDelete="CASCADE"/>
+        <createIndex indexName="idx_refresh_token__user" tableName="refresh_token">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <!--
+        Entité Paiement — séquestre des frais de visite (module V2, passerelle SIMULÉE).
+        Le paiement encadre les frais de visite : montant plafonné, conservé en
+        séquestre, libéré au démarcheur si la visite est honorée, remboursé sinon.
+    -->
+    <changeSet id="20260714120000-1" author="colocation-immo">
+        <createTable tableName="paiement">
+            <column name="id" type="bigint" autoIncrement="true" startWith="1500">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="reference" type="varchar(40)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="ux_paiement_reference"/>
+            </column>
+            <column name="montant" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="statut" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="moyen" type="varchar(20)"/>
+            <column name="date_creation" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_sequestre" type="datetime"/>
+            <column name="date_denouement" type="datetime"/>
+            <column name="rendez_vous_id" type="bigint">
+                <constraints nullable="false" unique="true" uniqueConstraintName="ux_paiement_rendez_vous"/>
+            </column>
+            <column name="payeur_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <dropDefaultValue tableName="paiement" columnName="date_creation" columnDataType="datetime"/>
+    </changeSet>
+
+    <changeSet id="20260714120000-2" author="colocation-immo">
+        <addForeignKeyConstraint baseColumnNames="rendez_vous_id"
+            baseTableName="paiement"
+            constraintName="fk_paiement__rendez_vous_id"
+            referencedColumnNames="id"
+            referencedTableName="rendez_vous"/>
+        <addForeignKeyConstraint baseColumnNames="payeur_id"
+            baseTableName="paiement"
+            constraintName="fk_paiement__payeur_id"
+            referencedColumnNames="id"
+            referencedTableName="jhi_user"/>
+    </changeSet>
+</databaseChangeLog>

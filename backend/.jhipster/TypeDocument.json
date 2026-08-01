@@ -1,0 +1,25 @@
+{
+  "annotations": {
+    "changelogDate": "20231216082017"
+  },
+  "applications": ["colocationImmo"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "500"
+    }
+  ],
+  "name": "TypeDocument",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

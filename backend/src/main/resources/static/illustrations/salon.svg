@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-label="Salon">
+  <rect width="640" height="400" fill="#EFE6D8"/>
+  <!-- mur du fond et plinthe -->
+  <rect y="0" width="640" height="300" fill="#EFE6D8"/>
+  <rect y="292" width="640" height="8" fill="#C9AC8C"/>
+  <!-- sol carrelé en perspective -->
+  <rect y="300" width="640" height="100" fill="#D8CBB8"/>
+  <g stroke="#C4B49F" stroke-width="2">
+    <line x1="0" y1="330" x2="640" y2="330"/><line x1="0" y1="362" x2="640" y2="362"/>
+    <line x1="80" y1="300" x2="40" y2="400"/><line x1="200" y1="300" x2="180" y2="400"/>
+    <line x1="320" y1="300" x2="320" y2="400"/><line x1="440" y1="300" x2="460" y2="400"/>
+    <line x1="560" y1="300" x2="600" y2="400"/>
+  </g>
+
+  <!-- fenêtre à claustras avec moustiquaire -->
+  <rect x="404" y="72" width="150" height="112" rx="4" fill="#B9D4E0"/>
+  <rect x="404" y="72" width="150" height="112" rx="4" fill="none" stroke="#C9AC8C" stroke-width="6"/>
+  <g stroke="#D9E7EE" stroke-width="2" opacity="0.8">
+    <line x1="404" y1="100" x2="554" y2="100"/><line x1="404" y1="128" x2="554" y2="128"/>
+    <line x1="404" y1="156" x2="554" y2="156"/>
+  </g>
+  <!-- rideau -->
+  <path d="M394 66 q18 60 6 122 h-26 V66 z" fill="#C97B3C" opacity="0.85"/>
+
+  <!-- ventilateur de plafond : détail typique -->
+  <rect x="196" y="0" width="8" height="26" fill="#8A9BA8"/>
+  <circle cx="200" cy="32" r="9" fill="#8A9BA8"/>
+  <g fill="#9FB0BC">
+    <rect x="120" y="29" width="80" height="7" rx="3"/>
+    <rect x="200" y="29" width="80" height="7" rx="3"/>
+  </g>
+
+  <!-- canapé -->
+  <rect x="54" y="196" width="240" height="60" rx="10" fill="#4A7C59"/>
+  <rect x="54" y="176" width="240" height="34" rx="10" fill="#568A63"/>
+  <rect x="46" y="192" width="24" height="58" rx="8" fill="#3F6B4C"/>
+  <rect x="278" y="192" width="24" height="58" rx="8" fill="#3F6B4C"/>
+  <rect x="66" y="252" width="14" height="16" fill="#6B4A2F"/>
+  <rect x="268" y="252" width="14" height="16" fill="#6B4A2F"/>
+  <!-- coussins -->
+  <rect x="86" y="182" width="42" height="30" rx="6" fill="#E0C9A6"/>
+  <rect x="222" y="182" width="42" height="30" rx="6" fill="#C97B3C"/>
+
+  <!-- table basse -->
+  <rect x="126" y="286" width="130" height="10" rx="4" fill="#8A6A4A"/>
+  <rect x="136" y="296" width="8" height="26" fill="#6B4A2F"/>
+  <rect x="238" y="296" width="8" height="26" fill="#6B4A2F"/>
+  <!-- calebasse posée -->
+  <ellipse cx="190" cy="280" rx="20" ry="9" fill="#B5653C"/>
+
+  <!-- plante en pot -->
+  <path d="M566 268 q-26 -46 -6 -78 q22 30 6 78 z" fill="#4A7C59"/>
+  <path d="M566 268 q26 -40 46 -50 q-16 34 -46 50 z" fill="#568A63"/>
+  <path d="M552 268 h44 l-6 34 h-32 z" fill="#B5653C"/>
+
+  <!-- tableau au mur -->
+  <rect x="96" y="72" width="86" height="66" rx="3" fill="#C9AC8C"/>
+  <rect x="104" y="80" width="70" height="50" fill="#E8D5B7"/>
+  <circle cx="126" cy="98" r="10" fill="#C97B3C"/>
+  <path d="M104 130 l28 -26 l20 18 l22 -14 v22 z" fill="#4A7C59"/>
+</svg>

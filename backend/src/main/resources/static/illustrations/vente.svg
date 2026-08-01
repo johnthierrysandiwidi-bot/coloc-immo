@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-label="Vente : villa à vendre à Ouagadougou">
+  <defs>
+    <linearGradient id="cielV" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#CFE0E8"/><stop offset="1" stop-color="#EADFC8"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="400" fill="url(#cielV)"/>
+  <rect y="296" width="640" height="104" fill="#B5653C"/>
+  <rect y="296" width="640" height="10" fill="#9E552F"/>
+
+  <rect x="30" y="224" width="580" height="72" fill="#D9BFA0"/>
+  <rect x="30" y="216" width="580" height="12" fill="#C9AC8C"/>
+
+  <!-- villa R+1 -->
+  <rect x="196" y="80" width="268" height="88" fill="#E3CDB2"/>
+  <rect x="170" y="168" width="320" height="88" fill="#D9BFA0"/>
+  <rect x="186" y="64" width="288" height="20" fill="#C9AC8C"/>
+  <rect x="160" y="160" width="340" height="14" fill="#C9AC8C"/>
+
+  <!-- balcon de l'étage -->
+  <rect x="240" y="150" width="180" height="8" fill="#C9AC8C"/>
+  <g stroke="#8C9AA6" stroke-width="3">
+    <line x1="252" y1="134" x2="252" y2="152"/><line x1="276" y1="134" x2="276" y2="152"/>
+    <line x1="300" y1="134" x2="300" y2="152"/><line x1="324" y1="134" x2="324" y2="152"/>
+    <line x1="348" y1="134" x2="348" y2="152"/><line x1="372" y1="134" x2="372" y2="152"/>
+    <line x1="396" y1="134" x2="396" y2="152"/>
+    <line x1="246" y1="134" x2="402" y2="134"/>
+  </g>
+
+  <!-- ouvertures -->
+  <g fill="#9CC2D1">
+    <rect x="216" y="100" width="52" height="40" rx="3"/>
+    <rect x="392" y="100" width="52" height="40" rx="3"/>
+    <rect x="192" y="192" width="56" height="42" rx="3"/>
+    <rect x="412" y="192" width="56" height="42" rx="3"/>
+  </g>
+  <rect x="304" y="190" width="52" height="66" rx="3" fill="#1B5E43"/>
+  <circle cx="346" cy="224" r="3" fill="#EADFC8"/>
+
+  <!-- panneau À VENDRE -->
+  <rect x="536" y="164" width="10" height="132" fill="#7A5A3A"/>
+  <rect x="492" y="150" width="100" height="54" rx="6" fill="#C97B3C"/>
+  <text x="542" y="175" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold"
+        fill="#FFFFFF" text-anchor="middle">À VENDRE</text>
+  <text x="542" y="193" font-family="Arial, Helvetica, sans-serif" font-size="11"
+        fill="#F6E7D5" text-anchor="middle">Ouagadougou</text>
+
+  <rect x="76" y="238" width="12" height="58" fill="#6B4A2F"/>
+  <circle cx="82" cy="228" r="32" fill="#4A7C59"/>
+  <circle cx="56" cy="240" r="20" fill="#3F6B4C"/>
+  <circle cx="108" cy="240" r="20" fill="#568A63"/>
+</svg>
