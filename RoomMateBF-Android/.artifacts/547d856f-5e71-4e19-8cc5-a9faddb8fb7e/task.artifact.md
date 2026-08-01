@@ -1,0 +1,9 @@
+- [x] Fix repositories compilation errors
+    - [x] `AlerteRepository.kt`: remove unused imports, fix `api` calls
+    - [x] `PublicationRepository.kt`: fix `mesBiens` and `mesAnnonces` calls
+    - [x] `ReferentielRepository.kt`: fix `api` calls
+- [x] Fix UI screens compilation errors
+    - [x] `AccueilScreen.kt`: add missing imports
+    - [x] `AnnonceDetailScreen.kt`: fix syntax error (missing closing brace)
+    - [x] `ServicesScreen.kt`: fix `Routes` references
+- [x] Verify build

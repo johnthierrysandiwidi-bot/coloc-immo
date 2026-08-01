@@ -1,0 +1,2 @@
+-keep class bf.colocation.immo.data.remote.dto.** { *; }
+-keepattributes *Annotation*
