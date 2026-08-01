@@ -1,0 +1,8 @@
+Palette inspirée de Ouagadougou :
+  latérite / terre battue  #B5653C
+  banco clair (mur)        #D9BFA0
+  sable                    #EADFC8
+  tôle ondulée (toit)      #8C9AA6
+  neem / végétation        #4A7C59
+  ciel harmattan           #CFE0E8
+  vert de marque ColocImmo #1B5E43

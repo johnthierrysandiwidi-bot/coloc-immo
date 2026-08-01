@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-label="Cour de la concession">
+  <defs>
+    <linearGradient id="cielCo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#CFE0E8"/><stop offset="1" stop-color="#EADFC8"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="400" fill="url(#cielCo)"/>
+  <rect y="250" width="640" height="150" fill="#B5653C"/>
+  <rect y="250" width="640" height="10" fill="#9E552F"/>
+
+  <!-- mur de clôture avec tessons -->
+  <rect x="0" y="150" width="640" height="104" fill="#D9BFA0"/>
+  <rect x="0" y="142" width="640" height="12" fill="#C9AC8C"/>
+  <g stroke="#8C9AA6" stroke-width="3">
+    <line x1="40" y1="142" x2="46" y2="130"/><line x1="120" y1="142" x2="114" y2="128"/>
+    <line x1="220" y1="142" x2="228" y2="130"/><line x1="360" y1="142" x2="354" y2="128"/>
+    <line x1="480" y1="142" x2="488" y2="130"/><line x1="580" y1="142" x2="574" y2="130"/>
+  </g>
+
+  <!-- auvent en tôle sur poteaux : le « hangar » de cour -->
+  <polygon points="60,138 330,138 350,166 40,166" fill="#8C9AA6"/>
+  <rect x="66" y="166" width="8" height="86" fill="#6B4A2F"/>
+  <rect x="320" y="166" width="8" height="86" fill="#6B4A2F"/>
+
+  <!-- nattes et tabourets sous l'auvent -->
+  <ellipse cx="150" cy="266" rx="70" ry="16" fill="#C9AC8C"/>
+  <rect x="230" y="238" width="34" height="7" rx="3" fill="#8A6A4A"/>
+  <rect x="235" y="245" width="6" height="18" fill="#8A6A4A"/>
+  <rect x="253" y="245" width="6" height="18" fill="#8A6A4A"/>
+
+  <!-- canaris pour l'eau -->
+  <ellipse cx="420" cy="252" rx="26" ry="18" fill="#9E552F"/>
+  <ellipse cx="420" cy="236" rx="19" ry="12" fill="#B5653C"/>
+  <ellipse cx="462" cy="256" rx="18" ry="12" fill="#9E552F"/>
+
+  <!-- fil à linge -->
+  <line x1="360" y1="150" x2="620" y2="176" stroke="#8A6A4A" stroke-width="2"/>
+  <rect x="392" y="156" width="34" height="42" rx="3" fill="#4A7C59"/>
+  <rect x="446" y="162" width="30" height="38" rx="3" fill="#C97B3C"/>
+  <rect x="496" y="168" width="34" height="40" rx="3" fill="#E8D5B7"/>
+
+  <!-- neem -->
+  <rect x="576" y="200" width="12" height="56" fill="#6B4A2F"/>
+  <circle cx="582" cy="190" r="36" fill="#4A7C59"/>
+  <circle cx="552" cy="204" r="22" fill="#3F6B4C"/>
+  <circle cx="612" cy="204" r="20" fill="#568A63"/>
+</svg>
